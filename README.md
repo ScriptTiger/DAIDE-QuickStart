@@ -10,7 +10,7 @@ AiServer (game server): http://www.ellought.demon.co.uk/dipai/aiserver.msi
 AiMapper (game client): http://www.ellought.demon.co.uk/dipai/aimapper.msi  
 HoldBot (civil disorder): http://www.ellought.demon.co.uk/dipai/holdbot.zip
 
-The original DAIDE QuickStart and Albet are copyright © to Jason van Hal 2013 and available/licensed separately:  
+The original DAIDE QuickStart and Albert are copyright © to Jason van Hal 2013 and available/licensed separately:  
 DAIDE QuickStart (software package incuding AiServer, AiMapper, and Albert): https://sites.google.com/site/diplomacyai/DAIDE_QuickStart.msi?attredirects=0  
 Albert (AI): https://sites.google.com/site/diplomacyai/Albert.msi?attredirects=0
 
