@@ -124,8 +124,18 @@ if %errorlevel%==1 (
 	if !errorlevel!==13 set lvl=120
 	if !errorlevel!==14 set lvl=130
 	if !errorlevel!==15 set lvl=8000
+	set add=
+	echo Time limits default to no limit if no number is given
+	echo 900 seconds is 15 minutes, which is a standard limit given for movements
+	set /p mtl=Movement deadline in seconds: && set add=-mtl=!mtl!
+	set /p rtl=Retreat deadline in seconds: && set add=!add! -rtl=!rtl!
+	set /p btl=Adjustment dealine in seconds: && set add=!add! -btl=!btl!
+	choice /m "Allow any order to be submitted, even mistaken orders doomed to be rejected?"
+	if !errorlevel!==1 set add=!add! -aoa
+	choice /m "Allow partial draws?"
+	if !errorlevel!==1 set add=!add! -pda
 	echo Starting server...
-	start "" /d "%~dp0aiserver" /b AiServer.exe -start -fixedpowers -var=%var% -lvl=!lvl!
+	start "" /d "%~dp0aiserver" /b AiServer.exe -start -fixedpowers -var=%var% -lvl=!lvl! !add!
 	timeout /t 3 > nul
 	echo Filling player slots...
 	if exist "%~dp0aimapper\*.clg" del "%~dp0aimapper\*.clg"
@@ -136,7 +146,7 @@ if %errorlevel%==1 (
 	start "" /d "%~dp0aiserver" /b AiServer.exe -fixedpowers
 	echo Load your saved game now and press any key once the server has started
 	pause > nul
-) 
+)
 
 set p=0
 set hp=0
