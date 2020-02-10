@@ -149,7 +149,6 @@ if %errorlevel%==1 (
 )
 
 set p=0
-set hp=0
 set d=50
 for %%0 in (!all_cty!) do (
 	for /f "tokens=1,2 delims=:" %%a in ('echo %%0') do (
@@ -180,7 +179,6 @@ for %%0 in (!all_cty!) do (
 		echo Power:		!rcty!
 		echo Passcode:	!rpc!
 		start "" /d "%~dp0aimapper" /b AiMapper.exe -n!cty! -cPlayer
-		set /a hp=!hp!+1
 	) else (
 		if !errorlevel!==2 (
 			set /p d="Bot difficulty [0-100], defaults to !d!: "
@@ -190,10 +188,8 @@ for %%0 in (!all_cty!) do (
 	)
 )
 
-if %hp%==0 (
-	choice /m "Would you like to observe?"
-	if !errorlevel!==1 start "" /d "%~dp0aimapper" /b AiMapper.exe -nObserver -cObserver
-)
+choice /m "Open an observer client instance just for observing the game?"
+if !errorlevel!==1 start "" /d "%~dp0aimapper" /b AiMapper.exe -nObserver -cObserver
 
 echo If you would like to save your game later, keep this window open
 choice /m "Would you like to save your game now?"
