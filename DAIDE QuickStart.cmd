@@ -76,7 +76,7 @@ for %%0 in (
 ) do (
 	if "!var!"=="" (
 		for /f "tokens=1,2,3* delims=," %%a in ('echo %%~0') do (
-			choice /m "%%a"
+			choice /m "%%a [%%c players]"
 			if !errorlevel!==1 (
 				set var=%%b
 				set p=%%c
@@ -149,29 +149,40 @@ if %errorlevel%==1 (
 )
 
 set p=0
+set rand_cty=
+for %%0 in (%all_cty%) do (
+	set /a p=!p!+1
+	set rand_cty=!rand_cty!!random!:!p!:%%0 
+)
+
+echo The following player assignments are in a randomly generated order
+
 set d=50
-for %%0 in (!all_cty!) do (
-	for /f "tokens=1,2 delims=:" %%a in ('echo %%0') do (
-		set cty=%%a
-		set rcty=%%b
-		set /a p=!p!+1
-		if !p!==1 set rpc=41
-		if !p!==2 set rpc=2083
-		if !p!==3 set rpc=6334
-		if !p!==4 set rpc=1924
-		if !p!==5 set rpc=2785
-		if !p!==6 set rpc=7532
-		if !p!==7 set rpc=3286
-		if !p!==8 set rpc=4782
-		if !p!==9 set rpc=2386
-		if !p!==10 set rpc=8080
-		if !p!==11 set rpc=5705
-		if !p!==12 set rpc=3569
-		if !p!==13 set rpc=6897
-		if !p!==14 set rpc=443
-		if !p!==15 set rpc=1769
-		if !p!==16 set rpc=491
-		if !p!==17 set rpc=2995
+for /f %%0 in (
+	'^(
+		for %%a in ^(%rand_cty%^) do @^(echo %%a^)
+	^) ^| sort'
+) do (
+	for /f "tokens=2,3,4 delims=:" %%a in ('echo %%0') do (
+		if %%a==1 set rpc=41
+		if %%a==2 set rpc=2083
+		if %%a==3 set rpc=6334
+		if %%a==4 set rpc=1924
+		if %%a==5 set rpc=2785
+		if %%a==6 set rpc=7532
+		if %%a==7 set rpc=3286
+		if %%a==8 set rpc=4782
+		if %%a==9 set rpc=2386
+		if %%a==10 set rpc=8080
+		if %%a==11 set rpc=5705
+		if %%a==12 set rpc=3569
+		if %%a==13 set rpc=6897
+		if %%a==14 set rpc=443
+		if %%a==15 set rpc=1769
+		if %%a==16 set rpc=491
+		if %%a==17 set rpc=2995
+		set cty=%%b
+		set rcty=%%c
 	)
 	echo !cty!
 	choice /c hbc /n /m "[H]uman, [B]ot, or [C]ivil disorder?"
