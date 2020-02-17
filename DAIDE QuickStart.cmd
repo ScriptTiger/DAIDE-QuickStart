@@ -189,7 +189,8 @@ for /f %%0 in (
 	if !errorlevel!==1 (
 		echo Power:		!rcty!
 		echo Passcode:	!rpc!
-		start "" /d "%~dp0aimapper" /b AiMapper.exe -n!cty! -cPlayer
+		choice /m "Open a client instance now to play as !cty! locally?"
+		if !errorlevel!==1 start "" /d "%~dp0aimapper" /b AiMapper.exe -n!cty! -cPlayer
 	) else (
 		if !errorlevel!==2 (
 			set /p d="Bot difficulty [0-100], defaults to !d!: "
