@@ -193,7 +193,7 @@ for /f %%0 in (
 		if !errorlevel!==1 start "" /d "%~dp0aimapper" /b AiMapper.exe -n!cty! -cPlayer
 	) else (
 		if !errorlevel!==2 (
-			set /p d="Bot difficulty [0-100], defaults to !d!: "
+			set /p d="Bot difficulty [4-100], defaults to !d!: "
 			start "" /d "%~dp0albert" /b Albert.exe -t -d!d! -r!rcty!:!rpc!
 		)
 		if !errorlevel!==3 start "" /d "%~dp0holdbot" /b AiClient.exe -r!rcty!:!rpc!
