@@ -134,6 +134,26 @@ if %errorlevel%==1 (
 	if !errorlevel!==1 set add=!add! -aoa
 	choice /m "Allow partial draws?"
 	if !errorlevel!==1 set add=!add! -pda
+	choice /m "Skip player assignments and play a randomized local game against bots?"
+	if !errorlevel!==1 (
+		set d=50
+		set /p d="Bot difficulty [4-100], defaults to !d!: "
+		choice /m "Lone wolf isolationist bots?"
+		if !errorlevel!==1 (set s=-n -g
+		) else set s=
+		echo Starting game...
+		start "" /d "%~dp0aiserver" /b AiServer.exe -start -fixedpowers -var=%var% -lvl=!lvl! !add!
+		timeout /t 3 > nul
+		for /l %%0 in (1,1,!p!) do set p_!random!!random!!random!=%%0
+		for /f "tokens=2 delims==" %%0 in ('set p_ ^| sort /+3') do set h=%%0
+		for /f "tokens=1 delims==" %%0 in ('set p_') do set %%0=
+		if exist "%~dp0aimapper\*.clg" del "%~dp0aimapper\*.clg"
+		for /l %%0 in (1,1,!p!) do (
+			if !h!==%%0 (start "" /d "%~dp0aimapper" /b AiMapper.exe -nHuman -cPlayer
+			) else start "" /d "%~dp0albert" /b Albert.exe -t !s! -d!d!
+		)
+		goto Save
+	)
 	echo Starting server...
 	start "" /d "%~dp0aiserver" /b AiServer.exe -start -fixedpowers -var=%var% -lvl=!lvl! !add!
 	timeout /t 3 > nul
@@ -152,7 +172,7 @@ set p=0
 set rand_cty=
 for %%0 in (%all_cty%) do (
 	set /a p=!p!+1
-	set rand_cty=!rand_cty!!random!:!p!:%%0 
+	set rand_cty=!rand_cty!!random!!random!!random!:!p!:%%0 
 )
 
 echo The following player assignments are in a randomly generated order
@@ -194,7 +214,10 @@ for /f %%0 in (
 	) else (
 		if !errorlevel!==2 (
 			set /p d="Bot difficulty [4-100], defaults to !d!: "
-			start "" /d "%~dp0albert" /b Albert.exe -t -d!d! -r!rcty!:!rpc!
+			choice /m "Lone wolf isolationist bot?"
+			if !errorlevel!==1 (set s=-n -g
+			) else set s=
+			start "" /d "%~dp0albert" /b Albert.exe -t !s! -d!d! -r!rcty!:!rpc!
 		)
 		if !errorlevel!==3 start "" /d "%~dp0holdbot" /b AiClient.exe -r!rcty!:!rpc!
 	)
@@ -203,6 +226,7 @@ for /f %%0 in (
 choice /m "Open an observer client instance just for observing the game?"
 if !errorlevel!==1 start "" /d "%~dp0aimapper" /b AiMapper.exe -nObserver -cObserver
 
+:Save
 echo If you would like to save your game later, keep this window open
 choice /m "Would you like to save your game now?"
 if %errorlevel%==1 (
@@ -215,5 +239,4 @@ if %errorlevel%==1 (
 		echo Ensure your server has permission to write to its home directory
 	)
 )
-
 pause
