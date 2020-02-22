@@ -138,19 +138,16 @@ if %errorlevel%==1 (
 	if !errorlevel!==1 (
 		set d=50
 		set /p d="Bot difficulty [4-100], defaults to !d!: "
-		choice /m "Lone wolf isolationist bots?"
-		if !errorlevel!==1 (set s=-n -g
-		) else set s=
 		echo Starting game...
 		start "" /d "%~dp0aiserver" /b AiServer.exe -start -fixedpowers -var=%var% -lvl=!lvl! !add!
 		timeout /t 3 > nul
-		for /l %%0 in (1,1,!p!) do set p_!random!!random!!random!=%%0
-		for /f "tokens=2 delims==" %%0 in ('set p_ ^| sort /+3') do set h=%%0
+		for /l %%0 in (1,1,!p!) do set p_!random:~-1!!random:~-1!!random:~-1!!random:~-1!!random:~-1!=%%0
+		for /f "tokens=2 delims==" %%0 in ('set p_') do set h=%%0
 		for /f "tokens=1 delims==" %%0 in ('set p_') do set %%0=
 		if exist "%~dp0aimapper\*.clg" del "%~dp0aimapper\*.clg"
 		for /l %%0 in (1,1,!p!) do (
 			if !h!==%%0 (start "" /d "%~dp0aimapper" /b AiMapper.exe -nHuman -cPlayer
-			) else start "" /d "%~dp0albert" /b Albert.exe -t !s! -d!d!
+			) else start "" /d "%~dp0albert" /b Albert.exe -t -d!d!
 		)
 		goto Save
 	)
@@ -172,7 +169,7 @@ set p=0
 set rand_cty=
 for %%0 in (%all_cty%) do (
 	set /a p=!p!+1
-	set rand_cty=!rand_cty!!random!!random!!random!:!p!:%%0 
+	set rand_cty=!rand_cty!!random:~-1!!random:~-1!!random:~-1!!random:~-1!!random:~-1!:!p!:%%0 
 )
 
 echo The following player assignments are in a randomly generated order
@@ -214,10 +211,7 @@ for /f %%0 in (
 	) else (
 		if !errorlevel!==2 (
 			set /p d="Bot difficulty [4-100], defaults to !d!: "
-			choice /m "Lone wolf isolationist bot?"
-			if !errorlevel!==1 (set s=-n -g
-			) else set s=
-			start "" /d "%~dp0albert" /b Albert.exe -t !s! -d!d! -r!rcty!:!rpc!
+			start "" /d "%~dp0albert" /b Albert.exe -t -d!d! -r!rcty!:!rpc!
 		)
 		if !errorlevel!==3 start "" /d "%~dp0holdbot" /b AiClient.exe -r!rcty!:!rpc!
 	)
