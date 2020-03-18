@@ -1,4 +1,4 @@
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ScriptTiger)
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/thescripttiger%40gmail.com)
 
 # DAIDE QuickStart
 Replacement for the original `DAIDE QuickStart.exe`. This script helps you quickly and easily set up Diplomacy games, both local or networked games with any combination of bots and/or humans, with a variety of variants included.
