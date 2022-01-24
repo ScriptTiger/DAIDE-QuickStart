@@ -6,13 +6,13 @@ Replacement for the original `DAIDE QuickStart.exe`. This script helps you quick
 This project is maintained by ScriptTiger: https://github.com/ScriptTiger/DAIDE-QuickStart
 
 The AiServer, AiMapper, and HoldBot are copyright © to David Norman and available/licensed separately:  
-AiServer (game server): http://www.ellought.demon.co.uk/dipai/aiserver.msi  
-AiMapper (game client): http://www.ellought.demon.co.uk/dipai/aimapper.msi  
-HoldBot (civil disorder): http://www.ellought.demon.co.uk/dipai/holdbot.zip
+AiServer (game server): https://web.archive.org/web/20200514094234/http://www.ellought.demon.co.uk/dipai/aiserver.msi  
+AiMapper (game client): https://web.archive.org/web/20200514094252/http://www.ellought.demon.co.uk/dipai/aimapper.msi  
+HoldBot (civil disorder): https://web.archive.org/web/20060506084359/http://www.ellought.demon.co.uk/dipai/holdbot.zip
 
 The original DAIDE QuickStart and Albert are copyright © to Jason van Hal 2013 and available/licensed separately:  
-DAIDE QuickStart (software package incuding AiServer, AiMapper, and Albert): https://sites.google.com/site/diplomacyai/DAIDE_QuickStart.msi?attredirects=0  
-Albert (AI): https://sites.google.com/site/diplomacyai/Albert.msi?attredirects=0
+DAIDE QuickStart (software package incuding AiServer, AiMapper, and Albert): https://drive.google.com/file/d/14LjBRoNWxgrSrur16IunBQ8htA3YoX-U/view?usp=sharing  
+Albert (AI): https://drive.google.com/file/d/1M5Z1fMKkTJ81O7VWFe22BaUbJMp3b4ZE/view?usp=sharing
 
 You can download this repo from the below link to get started:  
 https://github.com/ScriptTiger/DAIDE-QuickStart/archive/master.zip
