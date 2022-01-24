@@ -148,6 +148,7 @@ if %errorlevel%==1 (
 		for /l %%0 in (1,1,!p!) do (
 			if !h!==%%0 (start "" /d "%~dp0aimapper" /b AiMapper.exe -nHuman -cPlayer
 			) else start "" /d "%~dp0albert" /b Albert.exe -t -d!d!
+			timeout 1 > nul
 		)
 		goto Save
 	)
