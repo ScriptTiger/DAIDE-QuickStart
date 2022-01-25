@@ -15,7 +15,7 @@ DAIDE QuickStart (software package incuding AiServer, AiMapper, and Albert): htt
 Albert (AI): https://drive.google.com/file/d/1M5Z1fMKkTJ81O7VWFe22BaUbJMp3b4ZE/view?usp=sharing
 
 **You can download the latest pre-bundled ScriptTiger package from the below link to get started right away:  
-https://github.com/ScriptTiger/DAIDE-QuickStart/releases**
+https://github.com/ScriptTiger/DAIDE-QuickStart/releases/download/1.0/DAIDE-QuickSart.zip**
 
 The directory structure should be as follows:  
 aimapper\  
