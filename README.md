@@ -5,28 +5,29 @@ Replacement for the original `DAIDE QuickStart.exe`. This script helps you quick
 
 This project is maintained by ScriptTiger: https://github.com/ScriptTiger/DAIDE-QuickStart
 
-The AiServer, AiMapper, and HoldBot are copyright © to David Norman and available/licensed separately:  
+The AiServer, AiMapper, and HoldBot are copyright © to David Norman and licensed separately:  
 AiServer (game server): https://web.archive.org/web/20200514094234/http://www.ellought.demon.co.uk/dipai/aiserver.msi  
 AiMapper (game client): https://web.archive.org/web/20200514094252/http://www.ellought.demon.co.uk/dipai/aimapper.msi  
 HoldBot (civil disorder): https://web.archive.org/web/20060506084359/http://www.ellought.demon.co.uk/dipai/holdbot.zip
 
-The original DAIDE QuickStart and Albert are copyright © to Jason van Hal 2013 and available/licensed separately:  
+The original DAIDE QuickStart and Albert are copyright © to Jason van Hal 2013 and licensed separately:  
 DAIDE QuickStart (software package incuding AiServer, AiMapper, and Albert): https://drive.google.com/file/d/14LjBRoNWxgrSrur16IunBQ8htA3YoX-U/view?usp=sharing  
 Albert (AI): https://drive.google.com/file/d/1M5Z1fMKkTJ81O7VWFe22BaUbJMp3b4ZE/view?usp=sharing
 
-You can download this repo from the below link to get started:  
-https://github.com/ScriptTiger/DAIDE-QuickStart/archive/master.zip
+**You can download the latest pre-bundled ScriptTiger package from the below link to get started right away:  
+https://github.com/ScriptTiger/DAIDE-QuickStart/releases**
 
-You must extract the contents of the above `master.zip` archive to the same directory as the `DAIDE QuickStart.exe` for the script to function. The directory structure should be as follows:  
+The directory structure should be as follows:  
 aimapper\  
 aiserver\  
 albert\  
 DAIDE QuickStart.cmd  
-holdbot\  
+holdbot\
+
 **NOTES:**  
 - For human players connecting over the network, they only need to install the AiMapper using the above link provided from David Norman.  
 - Installing Jason van Hal's `DAIDE QuickStart` package using the above link is the same thing as installing the above AiServer, AiMapper, and Albert packages together. If you read Jason's `How to Play` (https://sites.google.com/site/diplomacyai/home/how-to-play), please ignore his `Installation Option 1` and `Installation Option 2`, as there is no need to install the same software twice.  
-- The above directory structure is the default structure created when you install the `DAIDE QuickStart` package, except for `holdbot\` which provides the civil disorder functionality. Please ensure you install `HoldBot` separately using the above link provided from David Norman.  
+- The above directory structure is the default structure created when you install the `DAIDE QuickStart` package, except for `holdbot\` which provides the civil disorder functionality. Please ensure you install `HoldBot` separately using the above link provided from David Norman if you are not using a pre-bundled ScriptTiger package.  
 - In order for the saving and loading of games to work correctly, you must ensure you are using a user account which has write access to the above directory structure.
 
 For more ScriptTiger scripts and goodies, check out ScriptTiger's GitHub Pages website:  
