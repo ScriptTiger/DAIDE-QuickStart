@@ -1,5 +1,12 @@
 @echo off
 
+rem =====
+rem For more information on ScriptTiger and more ScriptTiger scripts visit the following URL:
+rem https://scripttiger.github.io/
+rem Or visit the following URL for the latest information on this ScriptTiger script:
+rem https://github.com/ScriptTiger/DAIDE-QuickStart
+rem =====
+
 if exist "%~dp0aiserver\AiServer.exe" (
 	if exist "%~dp0aimapper\AiMapper.exe" (
 		if exist "%~dp0albert\Albert.exe" (
