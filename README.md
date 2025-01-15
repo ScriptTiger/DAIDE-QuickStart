@@ -30,7 +30,7 @@ holdbot\
 - The above directory structure is the default structure created when you install the `DAIDE QuickStart` package, except for `holdbot\` which provides the civil disorder functionality. Please ensure you install `HoldBot` separately using the above link provided from David Norman if you are not using a pre-bundled ScriptTiger package.  
 - In order for the saving and loading of games to work correctly, you must ensure you are using a user account which has write access to the above directory structure.
 
+# More About ScriptTiger
+
 For more ScriptTiger scripts and goodies, check out ScriptTiger's GitHub Pages website:  
 https://scripttiger.github.io/
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MZ4FH4G5XHGZ4)
